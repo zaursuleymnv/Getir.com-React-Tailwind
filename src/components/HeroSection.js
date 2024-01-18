@@ -1,4 +1,5 @@
 import Slider from "react-slick";
+import { FaFacebook } from "react-icons/fa";
 import "slick-carousel/slick/slick.css"; 
 import "slick-carousel/slick/slick-theme.css";
 import ReactFlagsSelect from "react-flags-select";
@@ -19,11 +20,15 @@ export default function HeroSection() {
   }
 
   const settings = {
-    dots: true,
+    dots: false,
     infinite: true,
     speed: 500,
     slidesToShow: 1,
-    slidesToScroll: 1
+    slidesToScroll: 1,
+    autoplay: true,
+    speed: 500,
+    autoplaySpeed: 3500,
+    cssEase: "linear"
   };
 
   return (
@@ -50,14 +55,31 @@ export default function HeroSection() {
             </h3>
           </div>
           <div className="w-[400px] rounded-lg bg-gray-50 p-6">
-            <h4 className="text-primary-brand-color font-semibold text-center">Login or register</h4>
-            <div className="flex">
-              <ReactFlagsSelect
-                countries={Object.keys(phones)}
-                customLabels={phones}
-                onSelect={code => setSelected(code)}
-                selected={selected}
-              />
+            <h4 className="text-primary-brand-color font-semibold text-center mb-4">Login or register</h4>
+            <div className="grid gap-y-3">
+              <div className="flex gap-x-2">
+                <ReactFlagsSelect
+                  countries={Object.keys(phones)}
+                  customLabels={phones}
+                  onSelect={code => setSelected(code)}
+                  selected={selected}
+                  className="flag-select"
+                />
+                <label className="flex-1 relative block group cursor-pointer">
+                  <input
+                    required 
+                    className="w-full h-14 px-4 border-2 border-gray-200 rounded outline-none group-hover:border-primary-brand-color focus:border-primary-brand-color transition-colors peer text-sm pt-2" />
+                  <span className="absolute top-0 left-0 flex items-center h-full px-4 text-gray-500 transition-all peer-focus:h-7 peer-focus:text-primary-brand-color peer-focus:text-xs peer-valid:h-7 peer-valid:text-primary-brand-color peer-valid:text-xs">Mobile Phone</span>
+                </label>
+              </div>
+              <button className="h-12 w-full bg-brand-yellow text-primary-brand-color text-sm font-semibold rounded-md flex items-center justify-center hover:bg-primary-brand-color hover:text-brand-yellow transition-colors">
+                Continue with phone number
+              </button>
+              <hr className="h-[1px] bg-gray-300 my-2" />
+              <button className="h-12 w-full bg-blue-700 bg-opacity-10 text-[#4267B2] px-4 text-sm font-semibold rounded-md flex items-center hover:bg-[#4267B2] hover:text-white transition-colors">
+                <FaFacebook size={24} />
+                <span className="mx-auto">Continue with Facebook</span>
+              </button>
             </div>
           </div>
         </div>
