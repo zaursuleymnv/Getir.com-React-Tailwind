@@ -1,3 +1,4 @@
+import Categories from "components/Categories";
 import Campanies from "./components/Campanies";
 import Cards from "./components/Cards";
 import Favorites from "./components/Favorites";
@@ -11,10 +12,13 @@ function App() {
     <>
     <Header/>
     <HeroSection/>
+    <Categories/>
     <Campanies/>
-    <Favorites/>
-    <MobileApp/>
-    <Cards/>
+    <div className="container mx-auto">
+      <Favorites/>
+      <MobileApp/>
+      <Cards/>
+    </div>
     <Footer/>
     </>
   );
