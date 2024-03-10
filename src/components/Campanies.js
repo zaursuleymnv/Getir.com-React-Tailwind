@@ -5,7 +5,7 @@ import { useEffect } from "react";
 import Title from "./ui/Title";
 import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
 
-function NextBtn({ className, onClick }) {
+function NextBtn({ className, style, onClick }) {
   return (
     <button className={`!text-brand-color absolute top-1/2 -right-6 -translate-y-1/2`} onClick={onClick}>
       <IoIosArrowForward size={22}/>
@@ -13,7 +13,7 @@ function NextBtn({ className, onClick }) {
   )
 }
 
-function PrevBtn({ className, onClick }) {
+function PrevBtn({ className, style, onClick }) {
   return (
     <button className={`!text-brand-color absolute top-1/2 -left-6 -translate-y-1/2`} onClick={onClick}>
       <IoIosArrowBack size={22}/>
